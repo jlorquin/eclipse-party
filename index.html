@@ -839,6 +839,129 @@
             color: var(--accent-cyan);
         }
 
+        /* Eclipse Path Map */
+        .eclipse-path-map {
+            margin: 2rem 0;
+            border-radius: 16px;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(20, 20, 35, 0.9) 0%, rgba(10, 10, 20, 0.95) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .eclipse-path-map:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .eclipse-path-map a.map-card-link {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .map-card-content {
+            padding: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .map-icon-large {
+            font-size: 4rem;
+            line-height: 1;
+            flex-shrink: 0;
+        }
+
+        .map-card-text {
+            flex: 1;
+        }
+
+        .map-card-text h4 {
+            margin: 0 0 0.5rem 0;
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .map-card-text p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.5);
+            line-height: 1.5;
+        }
+
+        .map-card-arrow {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .eclipse-path-map:hover .map-card-arrow {
+            transform: translateX(5px);
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .eclipse-path-map .map-source {
+            padding: 10px 2rem;
+            background: rgba(0, 0, 0, 0.3);
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.4);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .section-2026 .eclipse-path-map {
+            border-color: rgba(251, 191, 36, 0.3);
+        }
+
+        .section-2026 .eclipse-path-map:hover {
+            border-color: rgba(251, 191, 36, 0.5);
+            box-shadow: 0 12px 40px rgba(251, 191, 36, 0.15);
+        }
+
+        .section-2026 .map-icon-large {
+            color: var(--gold);
+            text-shadow: 0 0 30px rgba(251, 191, 36, 0.4);
+        }
+
+        .section-2026 .eclipse-path-map:hover .map-card-arrow {
+            color: var(--gold);
+        }
+
+        .section-2027 .eclipse-path-map {
+            border-color: rgba(34, 211, 238, 0.3);
+        }
+
+        .section-2027 .eclipse-path-map:hover {
+            border-color: rgba(34, 211, 238, 0.5);
+            box-shadow: 0 12px 40px rgba(34, 211, 238, 0.15);
+        }
+
+        .section-2027 .map-icon-large {
+            color: var(--accent-cyan);
+            text-shadow: 0 0 30px rgba(34, 211, 238, 0.4);
+        }
+
+        .section-2027 .eclipse-path-map:hover .map-card-arrow {
+            color: var(--accent-cyan);
+        }
+
+        @media (max-width: 600px) {
+            .map-card-content {
+                padding: 1.5rem;
+                gap: 1rem;
+            }
+            
+            .map-icon-large {
+                font-size: 3rem;
+            }
+            
+            .map-card-text h4 {
+                font-size: 1rem;
+            }
+        }
+
         /* The Window Section */
         .window-section {
             text-align: center;
@@ -1032,6 +1155,26 @@
                     <span class="lang-en">Weather</span><span class="lang-es">Clima</span>
                     <strong>86% clear</strong>
                 </div>
+            </div>
+
+            <!-- Eclipse Path Map 2026 -->
+            <div class="eclipse-path-map">
+                <a href="https://www.timeanddate.com/eclipse/map/2026-august-12#@40.9591582792081,-2.7135994854404375,7" target="_blank" rel="noopener" class="map-card-link">
+                    <div class="map-card-content">
+                        <div class="map-icon-large">🌍</div>
+                        <div class="map-card-text">
+                            <h4 class="lang-en">Interactive Eclipse Path Map</h4>
+                            <h4 class="lang-es">Mapa Interactivo de la Trayectoria</h4>
+                            <p class="lang-en">Explore the totality path across northern Spain. Zoom, pan, and see exact times for any location.</p>
+                            <p class="lang-es">Explora la franja de totalidad a través del norte de España. Amplía, desplaza y consulta horarios exactos para cualquier ubicación.</p>
+                        </div>
+                        <div class="map-card-arrow">→</div>
+                    </div>
+                    <div class="map-source">
+                        <span class="lang-en">Source: timeanddate.com — Aug 12, 2026 · Zaragoza region</span>
+                        <span class="lang-es">Fuente: timeanddate.com — 12 ago 2026 · Zona de Zaragoza</span>
+                    </div>
+                </a>
             </div>
 
             <h3>
@@ -1379,6 +1522,26 @@
                     <span class="lang-en">Weather</span><span class="lang-es">Clima</span>
                     <strong>93% clear</strong>
                 </div>
+            </div>
+
+            <!-- Eclipse Path Map 2027 -->
+            <div class="eclipse-path-map">
+                <a href="https://www.timeanddate.com/eclipse/map/2027-august-2#@36.45223948139448,-5.438214940810605,7" target="_blank" rel="noopener" class="map-card-link">
+                    <div class="map-card-content">
+                        <div class="map-icon-large">🌍</div>
+                        <div class="map-card-text">
+                            <h4 class="lang-en">Interactive Eclipse Path Map</h4>
+                            <h4 class="lang-es">Mapa Interactivo de la Trayectoria</h4>
+                            <p class="lang-en">Explore the totality path across southern Spain and the Strait of Gibraltar. Zoom, pan, and see exact times for any location.</p>
+                            <p class="lang-es">Explora la franja de totalidad a través del sur de España y el Estrecho de Gibraltar. Amplía, desplaza y consulta horarios exactos para cualquier ubicación.</p>
+                        </div>
+                        <div class="map-card-arrow">→</div>
+                    </div>
+                    <div class="map-source">
+                        <span class="lang-en">Source: timeanddate.com — Aug 2, 2027 · Strait of Gibraltar</span>
+                        <span class="lang-es">Fuente: timeanddate.com — 2 ago 2027 · Estrecho de Gibraltar</span>
+                    </div>
+                </a>
             </div>
 
             <h3>
