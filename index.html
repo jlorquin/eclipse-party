@@ -700,6 +700,119 @@
         /* Hide content by default, show with JS */
         .lang-content { display: block; }
 
+        /* Hero Year Cards */
+        .hero-years {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .year-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 16px;
+            padding: 20px 25px;
+            min-width: 180px;
+            text-align: center;
+        }
+
+        .year-card.sunset {
+            border-color: rgba(251, 191, 36, 0.3);
+            background: linear-gradient(135deg, rgba(251, 191, 36, 0.08) 0%, rgba(217, 70, 239, 0.05) 100%);
+        }
+
+        .year-card.morning {
+            border-color: rgba(34, 211, 238, 0.3);
+            background: linear-gradient(135deg, rgba(34, 211, 238, 0.08) 0%, rgba(168, 85, 247, 0.05) 100%);
+        }
+
+        .year-card .year {
+            font-size: 2rem;
+            font-weight: 200;
+            letter-spacing: 0.1em;
+            margin-bottom: 5px;
+        }
+
+        .year-card.sunset .year { color: var(--accent-gold); }
+        .year-card.morning .year { color: var(--accent-cyan); }
+
+        .year-card .date {
+            font-size: 0.85rem;
+            opacity: 0.7;
+            margin-bottom: 12px;
+        }
+
+        .year-card .stats {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            font-size: 0.9rem;
+        }
+
+        .year-card .stat-item {
+            text-align: center;
+        }
+
+        .year-card .stat-value {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .year-card .stat-label {
+            font-size: 0.75rem;
+            opacity: 0.6;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Section Year Backgrounds */
+        .section-2026 {
+            background: linear-gradient(180deg, 
+                rgba(251, 191, 36, 0.03) 0%, 
+                rgba(217, 70, 239, 0.02) 50%,
+                transparent 100%);
+            border-left: 3px solid rgba(251, 191, 36, 0.3);
+            margin-left: -20px;
+            padding-left: 20px;
+            margin-right: -20px;
+            padding-right: 20px;
+        }
+
+        .section-2027 {
+            background: linear-gradient(180deg, 
+                rgba(34, 211, 238, 0.03) 0%, 
+                rgba(168, 85, 247, 0.02) 50%,
+                transparent 100%);
+            border-left: 3px solid rgba(34, 211, 238, 0.3);
+            margin-left: -20px;
+            padding-left: 20px;
+            margin-right: -20px;
+            padding-right: 20px;
+        }
+
+        .section-label {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .section-2026 .section-label {
+            background: rgba(251, 191, 36, 0.2);
+            color: var(--accent-gold);
+        }
+
+        .section-2027 .section-label {
+            background: rgba(34, 211, 238, 0.2);
+            color: var(--accent-cyan);
+        }
+
         /* The Window Section */
         .window-section {
             text-align: center;
@@ -832,43 +945,47 @@
             <span class="lang-es">Dos eclipses solares totales. Dos veranos. Dos oportunidades de presenciar la alineación del cosmos — mientras aún somos jóvenes para bailar hasta el amanecer.</span>
         </p>
 
-        <div class="totality-box" style="flex-wrap: wrap; gap: 30px;">
-            <div style="display: flex; gap: 15px; align-items: center;">
-                <div class="totality-stat">
-                    <span class="value" style="font-size: 1.3rem;">2026</span>
-                    <span class="label">Aug 12</span>
-                </div>
-                <div class="totality-stat">
-                    <span class="value">20:30</span>
-                    <span class="label lang-en">Sunset</span>
-                    <span class="label lang-es">Atardecer</span>
-                </div>
-                <div class="totality-stat">
-                    <span class="value">1m 20s</span>
-                    <span class="label">Zaragoza</span>
+        <div class="hero-years">
+            <div class="year-card sunset">
+                <div class="year">2026</div>
+                <div class="date">Aug 12 · Zaragoza</div>
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-value">20:30</div>
+                        <div class="stat-label lang-en">Sunset</div>
+                        <div class="stat-label lang-es">Atardecer</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">1m 20s</div>
+                        <div class="stat-label lang-en">Darkness</div>
+                        <div class="stat-label lang-es">Oscuridad</div>
+                    </div>
                 </div>
             </div>
-            <div style="display: flex; gap: 15px; align-items: center;">
-                <div class="totality-stat">
-                    <span class="value" style="font-size: 1.3rem;">2027</span>
-                    <span class="label">Aug 2</span>
-                </div>
-                <div class="totality-stat">
-                    <span class="value">10:48</span>
-                    <span class="label lang-en">Morning</span>
-                    <span class="label lang-es">Mañana</span>
-                </div>
-                <div class="totality-stat">
-                    <span class="value">4m 46s</span>
-                    <span class="label">Tarifa</span>
+
+            <div class="year-card morning">
+                <div class="year">2027</div>
+                <div class="date">Aug 2 · Tarifa</div>
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-value">10:48</div>
+                        <div class="stat-label lang-en">Morning</div>
+                        <div class="stat-label lang-es">Mañana</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">4m 46s</div>
+                        <div class="stat-label lang-en">Darkness</div>
+                        <div class="stat-label lang-es">Oscuridad</div>
+                    </div>
                 </div>
             </div>
         </div>
     </header>
 
     <main class="container">
-        <!-- LOCATION -->
-        <section id="eclipse-2026">
+        <!-- ECLIPSE 2026 -->
+        <section id="eclipse-2026" class="section-2026">
+            <div class="section-label">2026</div>
             <h2>
                 <span class="lang-en">Eclipse 2026 — Zaragoza</span>
                 <span class="lang-es">Eclipse 2026 — Zaragoza</span>
@@ -880,7 +997,7 @@
                     <strong>Aug 12, 2026</strong>
                 </div>
                 <div class="quick-ref-item">
-                    <span class="lang-en">Totality</span><span class="lang-es">Totalidad</span>
+                    <span class="lang-en">Peak darkness</span><span class="lang-es">Oscuridad total</span>
                     <strong>20:30</strong>
                 </div>
                 <div class="quick-ref-item">
@@ -898,8 +1015,8 @@
                 <span class="lang-es">¿Por Qué la Zona de Zaragoza?</span>
             </h3>
 
-            <p class="lang-en">Sunset totality — the sun goes dark as it touches the horizon. This is the cinematic option: golden hour, eclipse, then immediate night rave. We evaluated every major viewing option:</p>
-            <p class="lang-es">Totalidad al atardecer — el sol se oscurece al tocar el horizonte. Esta es la opción cinematográfica: hora dorada, eclipse, y luego rave nocturna inmediata. Evaluamos cada opción importante:</p>
+            <p class="lang-en">Sunset eclipse — the sun goes dark as it touches the horizon. This is the cinematic option: golden hour, darkness, then immediate night rave. We evaluated every major viewing option:</p>
+            <p class="lang-es">Eclipse al atardecer — el sol se oscurece al tocar el horizonte. Esta es la opción cinematográfica: hora dorada, oscuridad, y luego rave nocturna inmediata. Evaluamos cada opción importante:</p>
 
             <div class="table-wrapper">
                 <table>
@@ -1152,9 +1269,9 @@
                 </div>
                 <div class="timeline-item highlight">
                     <div class="timeline-time">20:30-20:32</div>
-                    <div class="timeline-title">☀️🌑 TOTALITY / TOTALIDAD</div>
-                    <div class="timeline-desc lang-en">~1 minute 20 seconds of darkness</div>
-                    <div class="timeline-desc lang-es">~1 minuto 20 segundos de oscuridad</div>
+                    <div class="timeline-title">☀️🌑 <span class="lang-en">TOTAL DARKNESS</span><span class="lang-es">OSCURIDAD TOTAL</span></div>
+                    <div class="timeline-desc lang-en">~1 minute 20 seconds</div>
+                    <div class="timeline-desc lang-es">~1 minuto 20 segundos</div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-time">20:45</div>
@@ -1240,7 +1357,8 @@
         </section>
 
         <!-- ECLIPSE 2027 -->
-        <section id="eclipse-2027">
+        <section id="eclipse-2027" class="section-2027">
+            <div class="section-label">2027</div>
             <h2>
                 <span class="lang-en">Eclipse 2027 — Tarifa</span>
                 <span class="lang-es">Eclipse 2027 — Tarifa</span>
@@ -1252,7 +1370,7 @@
                     <strong>Aug 2, 2027</strong>
                 </div>
                 <div class="quick-ref-item">
-                    <span class="lang-en">Totality</span><span class="lang-es">Totalidad</span>
+                    <span class="lang-en">Peak darkness</span><span class="lang-es">Oscuridad total</span>
                     <strong>10:48</strong>
                 </div>
                 <div class="quick-ref-item">
@@ -1270,8 +1388,8 @@
                 <span class="lang-es">¿Por Qué la Costa de la Luz?</span>
             </h3>
 
-            <p class="lang-en">Morning totality — the longest in Spain this century. The "Eclipse of the Century" crosses southern Andalusia with nearly 5 minutes of darkness. Only 125km from Sevilla, this is the easier logistics option with better weather and longer totality.</p>
-            <p class="lang-es">Totalidad matutina — la más larga en España este siglo. El "Eclipse del Siglo" cruza el sur de Andalucía con casi 5 minutos de oscuridad. A solo 125km de Sevilla, esta es la opción logística más fácil con mejor clima y totalidad más larga.</p>
+            <p class="lang-en">Morning eclipse — the longest darkness in Spain this century. The "Eclipse of the Century" crosses southern Andalusia with nearly 5 minutes of total darkness. Only 125km from Sevilla, this is the easier logistics option with better weather.</p>
+            <p class="lang-es">Eclipse matutino — la oscuridad más larga en España este siglo. El "Eclipse del Siglo" cruza el sur de Andalucía con casi 5 minutos de oscuridad total. A solo 125km de Sevilla, esta es la opción logística más fácil con mejor clima.</p>
 
             <div class="table-wrapper">
                 <table>
@@ -1322,16 +1440,6 @@
                 </table>
             </div>
 
-            <div class="card" style="margin-top: 2rem;">
-                <h4><span class="lang-en">The Advantages</span><span class="lang-es">Las Ventajas</span></h4>
-                <ul>
-                    <li><span class="lang-en"><strong>3.5x longer totality</strong> than 2026 — nearly 5 minutes to experience it</span><span class="lang-es"><strong>Totalidad 3,5 veces más larga</strong> que 2026 — casi 5 minutos para vivirla</span></li>
-                    <li><span class="lang-en"><strong>Only 1.5h drive from Sevilla</strong> — carpool instead of trains</span><span class="lang-es"><strong>Solo 1,5h en coche desde Sevilla</strong> — viaje compartido en lugar de trenes</span></li>
-                    <li><span class="lang-en"><strong>Better weather</strong> — August in Cádiz = 7-13% cloud cover</span><span class="lang-es"><strong>Mejor clima</strong> — agosto en Cádiz = 7-13% de nubosidad</span></li>
-                    <li><span class="lang-en"><strong>All-day party</strong> — eclipse at 10:48, then beach, pool, lunch, sunset rave</span><span class="lang-es"><strong>Fiesta todo el día</strong> — eclipse a las 10:48, luego playa, piscina, almuerzo, rave al atardecer</span></li>
-                </ul>
-            </div>
-
             <h3>
                 <span class="lang-en">Transport & Schedule</span>
                 <span class="lang-es">Transporte y Horario</span>
@@ -1358,9 +1466,9 @@
                 </div>
                 <div class="timeline-item highlight">
                     <div class="timeline-time">10:48–10:53</div>
-                    <div class="timeline-title">☀️🌑 TOTALITY / TOTALIDAD</div>
-                    <div class="timeline-desc lang-en"><strong>~4 minutes 46 seconds</strong> of darkness</div>
-                    <div class="timeline-desc lang-es"><strong>~4 minutos 46 segundos</strong> de oscuridad</div>
+                    <div class="timeline-title">☀️🌑 <span class="lang-en">TOTAL DARKNESS</span><span class="lang-es">OSCURIDAD TOTAL</span></div>
+                    <div class="timeline-desc lang-en"><strong>~4 minutes 46 seconds</strong></div>
+                    <div class="timeline-desc lang-es"><strong>~4 minutos 46 segundos</strong></div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-time">12:00–21:00</div>
@@ -1430,8 +1538,8 @@
                 <div class="quick-ref-grid">
                     <div class="quick-ref-item">
                         <div class="big">20:30</div>
-                        <div class="small lang-en">Totality Start</div>
-                        <div class="small lang-es">Inicio Totalidad</div>
+                        <div class="small lang-en">Darkness begins</div>
+                        <div class="small lang-es">Comienza oscuridad</div>
                     </div>
                     <div class="quick-ref-item">
                         <div class="big">1m20s</div>
@@ -1451,8 +1559,8 @@
                 </div>
 
                 <div class="glasses-warning">
-                    <p class="lang-en"><strong>🕶️ GLASSES PROTOCOL:</strong> Wear eclipse glasses during all partial phases. REMOVE only during the ~80 seconds of totality. Put back on IMMEDIATELY when totality ends.</p>
-                    <p class="lang-es"><strong>🕶️ PROTOCOLO DE GAFAS:</strong> Llevar gafas de eclipse durante todas las fases parciales. QUITAR solo durante los ~80 segundos de totalidad. Ponérselas de nuevo INMEDIATAMENTE cuando termine la totalidad.</p>
+                    <p class="lang-en"><strong>🕶️ GLASSES PROTOCOL:</strong> Wear eclipse glasses during all partial phases. REMOVE only during total darkness (~80 seconds). Put back on IMMEDIATELY when brightness returns.</p>
+                    <p class="lang-es"><strong>🕶️ PROTOCOLO DE GAFAS:</strong> Llevar gafas de eclipse durante todas las fases parciales. QUITAR solo durante la oscuridad total (~80 segundos). Ponérselas de nuevo INMEDIATAMENTE cuando vuelva la luz.</p>
                 </div>
             </div>
 
@@ -1560,8 +1668,8 @@
                     <div class="eclipse-date">Aug 12</div>
                     <div class="eclipse-location">Zaragoza</div>
                     <div class="eclipse-duration">1m 20s</div>
-                    <div class="eclipse-vibe lang-en">Sunset totality</div>
-                    <div class="eclipse-vibe lang-es">Totalidad al atardecer</div>
+                    <div class="eclipse-vibe lang-en">Sunset darkness</div>
+                    <div class="eclipse-vibe lang-es">Oscuridad al atardecer</div>
                 </div>
 
                 <div class="eclipse-card now">
@@ -1569,8 +1677,8 @@
                     <div class="eclipse-date">Aug 2</div>
                     <div class="eclipse-location">Tarifa</div>
                     <div class="eclipse-duration">4m 46s</div>
-                    <div class="eclipse-vibe lang-en">Morning totality</div>
-                    <div class="eclipse-vibe lang-es">Totalidad matutina</div>
+                    <div class="eclipse-vibe lang-en">Morning darkness</div>
+                    <div class="eclipse-vibe lang-es">Oscuridad matutina</div>
                 </div>
 
                 <div class="eclipse-card future">
@@ -1578,8 +1686,8 @@
                     <div class="eclipse-date">Sep 12</div>
                     <div class="eclipse-location">Andalucía</div>
                     <div class="eclipse-duration">1m 35s</div>
-                    <div class="eclipse-vibe lang-en">Morning totality</div>
-                    <div class="eclipse-vibe lang-es">Totalidad matutina</div>
+                    <div class="eclipse-vibe lang-en">Morning darkness</div>
+                    <div class="eclipse-vibe lang-es">Oscuridad matutina</div>
                 </div>
             </div>
 
