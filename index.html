@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eclipse Party 2026 | Fiesta del Eclipse 2026</title>
+    <title>Eclipse Party Spain 2026-2027 | Fiesta del Eclipse</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -700,6 +700,81 @@
         /* Hide content by default, show with JS */
         .lang-content { display: block; }
 
+        /* The Window Section */
+        .window-section {
+            text-align: center;
+            padding-bottom: 80px;
+        }
+
+        .eclipse-timeline {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+        }
+
+        .eclipse-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 25px 20px;
+            width: 200px;
+            transition: all 0.3s ease;
+        }
+
+        .eclipse-card.now {
+            border-color: var(--accent);
+            box-shadow: 0 0 30px rgba(255, 0, 170, 0.15);
+        }
+
+        .eclipse-card.future {
+            opacity: 0.5;
+            border-style: dashed;
+        }
+
+        .eclipse-year {
+            font-size: 2.5rem;
+            font-weight: 200;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+        }
+
+        .eclipse-card.future .eclipse-year {
+            color: rgba(255,255,255,0.4);
+        }
+
+        .eclipse-date {
+            font-size: 0.9rem;
+            opacity: 0.6;
+            margin-bottom: 10px;
+        }
+
+        .eclipse-location {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .eclipse-duration {
+            font-size: 1.4rem;
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+
+        .eclipse-vibe {
+            font-size: 0.8rem;
+            opacity: 0.7;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        .window-message {
+            max-width: 600px;
+            margin: 2rem auto 1rem;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
         /* Responsive */
         @media (max-width: 600px) {
             body { font-size: 16px; }
@@ -711,6 +786,7 @@
             .quick-ref { padding: 25px; }
             .lang-toggle { top: 10px; right: 10px; }
             h2 { font-size: 1.4rem; }
+            .eclipse-card { width: 100%; max-width: 280px; }
         }
     </style>
 </head>
@@ -724,11 +800,10 @@
     <!-- Navigation Dots -->
     <nav class="nav">
         <a href="#hero" class="nav-dot active" data-label="Top"></a>
-        <a href="#location" class="nav-dot" data-label="Location"></a>
+        <a href="#window" class="nav-dot" data-label="The Window"></a>
+        <a href="#eclipse-2026" class="nav-dot" data-label="2026"></a>
+        <a href="#eclipse-2027" class="nav-dot" data-label="2027"></a>
         <a href="#venue" class="nav-dot" data-label="Venue"></a>
-        <a href="#logistics" class="nav-dot" data-label="Logistics"></a>
-        <a href="#budget" class="nav-dot" data-label="Budget"></a>
-        <a href="#eclipse" class="nav-dot" data-label="Eclipse"></a>
         <a href="#considerations" class="nav-dot" data-label="Tips"></a>
     </nav>
 
@@ -746,56 +821,85 @@
         </div>
         
         <h1>
-            <span class="lang-en">ECLIPSE 2026</span>
-            <span class="lang-es">ECLIPSE 2026</span>
+            <span class="lang-en">ECLIPSE PARTY SPAIN</span>
+            <span class="lang-es">FIESTA DEL ECLIPSE ESPAÑA</span>
         </h1>
         
-        <p class="date">12 . 08 . 2026</p>
+        <p class="date">2026 + 2027</p>
         
         <p class="tagline">
-            <span class="lang-en">An outdoor eclipse-viewing rave for 50-70 people, watching a total solar eclipse at sunset, somewhere in the hills near Zaragoza.</span>
-            <span class="lang-es">Una rave al aire libre para ver el eclipse, con 50-70 personas, observando un eclipse solar total al atardecer, en las colinas cerca de Zaragoza.</span>
+            <span class="lang-en">Two total solar eclipses. Two summers. Two chances to witness the cosmos align — while we're still young enough to dance until sunrise.</span>
+            <span class="lang-es">Dos eclipses solares totales. Dos veranos. Dos oportunidades de presenciar la alineación del cosmos — mientras aún somos jóvenes para bailar hasta el amanecer.</span>
         </p>
 
-        <div class="totality-box">
-            <div class="totality-stat">
-                <span class="value">20:30</span>
-                <span class="label lang-en">Totality</span>
-                <span class="label lang-es">Totalidad</span>
+        <div class="totality-box" style="flex-wrap: wrap; gap: 30px;">
+            <div style="display: flex; gap: 15px; align-items: center;">
+                <div class="totality-stat">
+                    <span class="value" style="font-size: 1.3rem;">2026</span>
+                    <span class="label">Aug 12</span>
+                </div>
+                <div class="totality-stat">
+                    <span class="value">20:30</span>
+                    <span class="label lang-en">Sunset</span>
+                    <span class="label lang-es">Atardecer</span>
+                </div>
+                <div class="totality-stat">
+                    <span class="value">1m 20s</span>
+                    <span class="label">Zaragoza</span>
+                </div>
             </div>
-            <div class="totality-stat">
-                <span class="value">1m 20s</span>
-                <span class="label lang-en">Duration</span>
-                <span class="label lang-es">Duración</span>
-            </div>
-            <div class="totality-stat">
-                <span class="value">86%</span>
-                <span class="label lang-en">Clear Sky Odds</span>
-                <span class="label lang-es">Prob. Despejado</span>
-            </div>
-            <div class="totality-stat">
-                <span class="value">8-10°</span>
-                <span class="label lang-en">Sun Altitude</span>
-                <span class="label lang-es">Altura del Sol</span>
+            <div style="display: flex; gap: 15px; align-items: center;">
+                <div class="totality-stat">
+                    <span class="value" style="font-size: 1.3rem;">2027</span>
+                    <span class="label">Aug 2</span>
+                </div>
+                <div class="totality-stat">
+                    <span class="value">10:48</span>
+                    <span class="label lang-en">Morning</span>
+                    <span class="label lang-es">Mañana</span>
+                </div>
+                <div class="totality-stat">
+                    <span class="value">4m 46s</span>
+                    <span class="label">Tarifa</span>
+                </div>
             </div>
         </div>
     </header>
 
     <main class="container">
         <!-- LOCATION -->
-        <section id="location">
+        <section id="eclipse-2026">
             <h2>
-                <span class="lang-en">The Location</span>
-                <span class="lang-es">La Ubicación</span>
+                <span class="lang-en">Eclipse 2026 — Zaragoza</span>
+                <span class="lang-es">Eclipse 2026 — Zaragoza</span>
             </h2>
+
+            <div class="quick-ref" style="margin-bottom: 2rem;">
+                <div class="quick-ref-item">
+                    <span class="lang-en">Date</span><span class="lang-es">Fecha</span>
+                    <strong>Aug 12, 2026</strong>
+                </div>
+                <div class="quick-ref-item">
+                    <span class="lang-en">Totality</span><span class="lang-es">Totalidad</span>
+                    <strong>20:30</strong>
+                </div>
+                <div class="quick-ref-item">
+                    <span class="lang-en">Duration</span><span class="lang-es">Duración</span>
+                    <strong>1m 20s</strong>
+                </div>
+                <div class="quick-ref-item">
+                    <span class="lang-en">Weather</span><span class="lang-es">Clima</span>
+                    <strong>86% clear</strong>
+                </div>
+            </div>
 
             <h3>
                 <span class="lang-en">Why Zaragoza Region?</span>
                 <span class="lang-es">¿Por Qué la Zona de Zaragoza?</span>
             </h3>
 
-            <p class="lang-en">We evaluated every major viewing option in Spain. Here's the full analysis:</p>
-            <p class="lang-es">Evaluamos cada opción importante de observación en España. Aquí está el análisis completo:</p>
+            <p class="lang-en">Sunset totality — the sun goes dark as it touches the horizon. This is the cinematic option: golden hour, eclipse, then immediate night rave. We evaluated every major viewing option:</p>
+            <p class="lang-es">Totalidad al atardecer — el sol se oscurece al tocar el horizonte. Esta es la opción cinematográfica: hora dorada, eclipse, y luego rave nocturna inmediata. Evaluamos cada opción importante:</p>
 
             <div class="table-wrapper">
                 <table>
@@ -1135,6 +1239,182 @@
             </ul>
         </section>
 
+        <!-- ECLIPSE 2027 -->
+        <section id="eclipse-2027">
+            <h2>
+                <span class="lang-en">Eclipse 2027 — Tarifa</span>
+                <span class="lang-es">Eclipse 2027 — Tarifa</span>
+            </h2>
+
+            <div class="quick-ref" style="margin-bottom: 2rem;">
+                <div class="quick-ref-item">
+                    <span class="lang-en">Date</span><span class="lang-es">Fecha</span>
+                    <strong>Aug 2, 2027</strong>
+                </div>
+                <div class="quick-ref-item">
+                    <span class="lang-en">Totality</span><span class="lang-es">Totalidad</span>
+                    <strong>10:48</strong>
+                </div>
+                <div class="quick-ref-item">
+                    <span class="lang-en">Duration</span><span class="lang-es">Duración</span>
+                    <strong>4m 46s</strong>
+                </div>
+                <div class="quick-ref-item">
+                    <span class="lang-en">Weather</span><span class="lang-es">Clima</span>
+                    <strong>93% clear</strong>
+                </div>
+            </div>
+
+            <h3>
+                <span class="lang-en">Why Costa de la Luz?</span>
+                <span class="lang-es">¿Por Qué la Costa de la Luz?</span>
+            </h3>
+
+            <p class="lang-en">Morning totality — the longest in Spain this century. The "Eclipse of the Century" crosses southern Andalusia with nearly 5 minutes of darkness. Only 125km from Sevilla, this is the easier logistics option with better weather and longer totality.</p>
+            <p class="lang-es">Totalidad matutina — la más larga en España este siglo. El "Eclipse del Siglo" cruza el sur de Andalucía con casi 5 minutos de oscuridad. A solo 125km de Sevilla, esta es la opción logística más fácil con mejor clima y totalidad más larga.</p>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="lang-en">Location</th>
+                            <th class="lang-es">Ubicación</th>
+                            <th class="lang-en">Totality</th>
+                            <th class="lang-es">Totalidad</th>
+                            <th class="lang-en">Cloud Cover</th>
+                            <th class="lang-es">Nubosidad</th>
+                            <th class="lang-en">From Sevilla</th>
+                            <th class="lang-es">Desde Sevilla</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="winner">
+                            <td>Tarifa</td>
+                            <td><strong>4m 46s</strong></td>
+                            <td>~10%</td>
+                            <td>~125km</td>
+                        </tr>
+                        <tr class="winner">
+                            <td>Algeciras</td>
+                            <td><strong>4m 26s</strong></td>
+                            <td>~12%</td>
+                            <td>~165km</td>
+                        </tr>
+                        <tr>
+                            <td>Cádiz</td>
+                            <td>2m 54s</td>
+                            <td>13%</td>
+                            <td>~125km</td>
+                        </tr>
+                        <tr>
+                            <td>Marbella</td>
+                            <td>3m 21s</td>
+                            <td>7%</td>
+                            <td>~210km</td>
+                        </tr>
+                        <tr>
+                            <td>Málaga</td>
+                            <td>1m 48s</td>
+                            <td>9%</td>
+                            <td>~220km</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card" style="margin-top: 2rem;">
+                <h4><span class="lang-en">The Advantages</span><span class="lang-es">Las Ventajas</span></h4>
+                <ul>
+                    <li><span class="lang-en"><strong>3.5x longer totality</strong> than 2026 — nearly 5 minutes to experience it</span><span class="lang-es"><strong>Totalidad 3,5 veces más larga</strong> que 2026 — casi 5 minutos para vivirla</span></li>
+                    <li><span class="lang-en"><strong>Only 1.5h drive from Sevilla</strong> — carpool instead of trains</span><span class="lang-es"><strong>Solo 1,5h en coche desde Sevilla</strong> — viaje compartido en lugar de trenes</span></li>
+                    <li><span class="lang-en"><strong>Better weather</strong> — August in Cádiz = 7-13% cloud cover</span><span class="lang-es"><strong>Mejor clima</strong> — agosto en Cádiz = 7-13% de nubosidad</span></li>
+                    <li><span class="lang-en"><strong>All-day party</strong> — eclipse at 10:48, then beach, pool, lunch, sunset rave</span><span class="lang-es"><strong>Fiesta todo el día</strong> — eclipse a las 10:48, luego playa, piscina, almuerzo, rave al atardecer</span></li>
+                </ul>
+            </div>
+
+            <h3>
+                <span class="lang-en">Transport & Schedule</span>
+                <span class="lang-es">Transporte y Horario</span>
+            </h3>
+
+            <p class="lang-en"><strong>Carpool from Sevilla</strong> — 125km via A-4/AP-4 → A-48. About €15-20 fuel per car (€4-5 per person with 4 people). No trains needed!</p>
+            <p class="lang-es"><strong>Viaje compartido desde Sevilla</strong> — 125km por A-4/AP-4 → A-48. Unos €15-20 de gasolina por coche (€4-5 por persona con 4 personas). ¡Sin trenes!</p>
+
+            <div class="timeline" style="margin-top: 1.5rem;">
+                <div class="timeline-item">
+                    <div class="timeline-time"><span class="lang-en">Sun Aug 1 — Evening</span><span class="lang-es">Dom 1 Ago — Tarde</span></div>
+                    <div class="timeline-title lang-en">Setup crew arrives</div>
+                    <div class="timeline-title lang-es">Llega el equipo de montaje</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time"><span class="lang-en">Mon Aug 2 — 06:00</span><span class="lang-es">Lun 2 Ago — 06:00</span></div>
+                    <div class="timeline-title lang-en">Main group leaves Sevilla</div>
+                    <div class="timeline-title lang-es">El grupo principal sale de Sevilla</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">09:40</div>
+                    <div class="timeline-title lang-en">Partial eclipse begins</div>
+                    <div class="timeline-title lang-es">Comienza el eclipse parcial</div>
+                </div>
+                <div class="timeline-item highlight">
+                    <div class="timeline-time">10:48–10:53</div>
+                    <div class="timeline-title">☀️🌑 TOTALITY / TOTALIDAD</div>
+                    <div class="timeline-desc lang-en"><strong>~4 minutes 46 seconds</strong> of darkness</div>
+                    <div class="timeline-desc lang-es"><strong>~4 minutos 46 segundos</strong> de oscuridad</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">12:00–21:00</div>
+                    <div class="timeline-title lang-en">All-day celebration: beach, pool, music</div>
+                    <div class="timeline-title lang-es">Celebración todo el día: playa, piscina, música</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time lang-en">21:00 → Dawn</div>
+                    <div class="timeline-time lang-es">21:00 → Amanecer</div>
+                    <div class="timeline-title lang-en">Night party</div>
+                    <div class="timeline-title lang-es">Fiesta nocturna</div>
+                </div>
+            </div>
+
+            <h3>
+                <span class="lang-en">Estimated Costs (2027)</span>
+                <span class="lang-es">Costes Estimados (2027)</span>
+            </h3>
+
+            <div class="budget-grid">
+                <div class="budget-card">
+                    <h4><span class="lang-en">Shared Costs</span><span class="lang-es">Costes Comunes</span></h4>
+                    <div class="budget-item">
+                        <span class="lang-en">Venue (2 nights)</span><span class="lang-es">Lugar (2 noches)</span>
+                        <span>€1,500–2,500</span>
+                    </div>
+                    <div class="budget-item">
+                        <span class="lang-en">Supplies / decoration</span><span class="lang-es">Suministros / decoración</span>
+                        <span>€200–400</span>
+                    </div>
+                    <div class="budget-item total">
+                        <span class="lang-en">SHARED TOTAL</span><span class="lang-es">TOTAL COMÚN</span>
+                        <span>€1,700–2,900</span>
+                    </div>
+                </div>
+
+                <div class="budget-card">
+                    <h4><span class="lang-en">Individual Costs</span><span class="lang-es">Costes Individuales</span></h4>
+                    <div class="budget-item">
+                        <span class="lang-en">Fuel (carpool)</span><span class="lang-es">Gasolina (compartido)</span>
+                        <span>€4–10</span>
+                    </div>
+                    <div class="budget-item">
+                        <span class="lang-en">Eclipse glasses</span><span class="lang-es">Gafas de eclipse</span>
+                        <span>€2–4</span>
+                    </div>
+                    <div class="budget-item">
+                        <span class="lang-en">Food & drinks</span><span class="lang-es">Comida y bebida</span>
+                        <span class="lang-en">BYOB</span><span class="lang-es">Trae lo tuyo</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- ECLIPSE EXPERIENCE -->
         <section id="eclipse">
             <h2>
@@ -1241,30 +1521,22 @@
 
                 <div class="consideration">
                     <div class="consideration-num">03</div>
-                    <h4 class="lang-en">Pool Safety</h4>
-                    <h4 class="lang-es">Seguridad en la Piscina</h4>
-                    <p class="lang-en">50-70 people + alcohol + pool + no lifeguard. Rotate sober spotters in 2-hour shifts. Clear pool by 20:15.</p>
-                    <p class="lang-es">50-70 personas + alcohol + piscina + sin socorrista. Rotar vigilantes sobrios en turnos de 2 horas. Despejar la piscina a las 20:15.</p>
+                    <h4 class="lang-en">Group Photo Timing</h4>
+                    <h4 class="lang-es">Timing de la Foto de Grupo</h4>
+                    <p class="lang-en">Plan a group photo during the partial phase before totality. People are excited, light is still good, easy to gather everyone.</p>
+                    <p class="lang-es">Planificar una foto de grupo durante la fase parcial antes de la totalidad. La gente está emocionada, la luz todavía es buena, fácil reunir a todos.</p>
                 </div>
 
                 <div class="consideration">
                     <div class="consideration-num">04</div>
-                    <h4 class="lang-en">Group Photo Timing</h4>
-                    <h4 class="lang-es">Timing de la Foto de Grupo</h4>
-                    <p class="lang-en">Optimal window: 19:45-20:00 during partial phase. People are excited, light is good, easy to gather everyone.</p>
-                    <p class="lang-es">Ventana óptima: 19:45-20:00 durante la fase parcial. La gente está emocionada, la luz es buena, fácil reunir a todos.</p>
+                    <h4 class="lang-en">Eclipse Glasses — ORDER EARLY</h4>
+                    <h4 class="lang-es">Gafas de Eclipse — PEDIR CON ANTELACIÓN</h4>
+                    <p class="lang-en">Order 80-100 pairs well in advance. ISO 12312-2 certified only. They sell out months before major eclipses.</p>
+                    <p class="lang-es">Pedir 80-100 pares con bastante antelación. Solo certificadas ISO 12312-2. Se agotan meses antes de los eclipses importantes.</p>
                 </div>
 
                 <div class="consideration">
                     <div class="consideration-num">05</div>
-                    <h4 class="lang-en">Eclipse Glasses — ORDER EARLY</h4>
-                    <h4 class="lang-es">Gafas de Eclipse — PEDIR CON ANTELACIÓN</h4>
-                    <p class="lang-en">Order 80-100 pairs by March/April 2026. ISO 12312-2 certified only. They sell out months before major eclipses.</p>
-                    <p class="lang-es">Pedir 80-100 pares antes de marzo/abril 2026. Solo certificadas ISO 12312-2. Se agotan meses antes de los eclipses importantes.</p>
-                </div>
-
-                <div class="consideration">
-                    <div class="consideration-num">06</div>
                     <h4 class="lang-en">The "What If It's Cloudy" Talk</h4>
                     <h4 class="lang-es">La Conversación del "¿Y Si Está Nublado?"</h4>
                     <p class="lang-en">Make sure everyone knows: 86% success odds, but if cloudy, the party still happens. Set expectations before people book trains.</p>
@@ -1272,13 +1544,55 @@
                 </div>
             </div>
         </section>
+        <!-- THE WINDOW -->
+        <section id="window" class="window-section">
+            <h2>
+                <span class="lang-en">The Window</span>
+                <span class="lang-es">La Ventana</span>
+            </h2>
+
+            <p class="lang-en" style="text-align: center; font-size: 1.1rem; margin-bottom: 2rem;">Total solar eclipses visible from Spain this century:</p>
+            <p class="lang-es" style="text-align: center; font-size: 1.1rem; margin-bottom: 2rem;">Eclipses solares totales visibles desde España este siglo:</p>
+
+            <div class="eclipse-timeline">
+                <div class="eclipse-card now">
+                    <div class="eclipse-year">2026</div>
+                    <div class="eclipse-date">Aug 12</div>
+                    <div class="eclipse-location">Zaragoza</div>
+                    <div class="eclipse-duration">1m 20s</div>
+                    <div class="eclipse-vibe lang-en">Sunset totality</div>
+                    <div class="eclipse-vibe lang-es">Totalidad al atardecer</div>
+                </div>
+
+                <div class="eclipse-card now">
+                    <div class="eclipse-year">2027</div>
+                    <div class="eclipse-date">Aug 2</div>
+                    <div class="eclipse-location">Tarifa</div>
+                    <div class="eclipse-duration">4m 46s</div>
+                    <div class="eclipse-vibe lang-en">Morning totality</div>
+                    <div class="eclipse-vibe lang-es">Totalidad matutina</div>
+                </div>
+
+                <div class="eclipse-card future">
+                    <div class="eclipse-year">2053</div>
+                    <div class="eclipse-date">Sep 12</div>
+                    <div class="eclipse-location">Andalucía</div>
+                    <div class="eclipse-duration">1m 35s</div>
+                    <div class="eclipse-vibe lang-en">Morning totality</div>
+                    <div class="eclipse-vibe lang-es">Totalidad matutina</div>
+                </div>
+            </div>
+
+            <p class="window-message lang-en">After 2027, the next total solar eclipse in Spain is <strong>26 years away</strong>.</p>
+            <p class="window-message lang-es">Después de 2027, el próximo eclipse solar total en España es dentro de <strong>26 años</strong>.</p>
+        </section>
     </main>
 
     <footer>
         <img class="footer-crane" src="data:image/webp;base64,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" alt="">
         <div class="emoji">🌑✨</div>
-        <p class="lang-en">Eclipse Party 2026 — A once-in-a-lifetime cosmic opportunity in Spain, envisioned one summer morning of 2021</p>
-        <p class="lang-es">Fiesta del Eclipse 2026 — Una oportunidad cósmica única en la vida, en España, soñada una mañana de verano de 2021</p>
+        <p class="lang-en">Eclipse Party Spain — Two cosmic opportunities, envisioned one summer morning of 2021</p>
+        <p class="lang-es">Fiesta del Eclipse España — Dos oportunidades cósmicas, soñadas una mañana de verano de 2021</p>
     </footer>
 
     <script>
