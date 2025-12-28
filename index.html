@@ -695,7 +695,33 @@
         /* Language content switching */
         .lang-es { display: none; }
         body.spanish .lang-en { display: none; }
-        body.spanish .lang-es { display: block; }
+        body.spanish .lang-es { display: revert; }
+        
+        /* For spans specifically, ensure inline display */
+        span.lang-es { display: none; }
+        body.spanish span.lang-en { display: none; }
+        body.spanish span.lang-es { display: inline; }
+        
+        /* For divs, use block */
+        div.lang-es { display: none; }
+        body.spanish div.lang-en { display: none; }
+        body.spanish div.lang-es { display: block; }
+        
+        /* For paragraphs */
+        p.lang-es { display: none; }
+        body.spanish p.lang-en { display: none; }
+        body.spanish p.lang-es { display: block; }
+        
+        /* For table headers/cells */
+        th.lang-es, td.lang-es { display: none; }
+        body.spanish th.lang-en, body.spanish td.lang-en { display: none; }
+        body.spanish th.lang-es { display: table-cell; }
+        body.spanish td.lang-es { display: table-cell; }
+        
+        /* For list items */
+        li.lang-es { display: none; }
+        body.spanish li.lang-en { display: none; }
+        body.spanish li.lang-es { display: list-item; }
 
         /* Hide content by default, show with JS */
         .lang-content { display: block; }
