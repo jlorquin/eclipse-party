@@ -1,0 +1,1335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eclipse Party 2026 | Fiesta del Eclipse 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0a0812;
+            --bg-card: #140f1a;
+            --bg-card-hover: #1f1728;
+            --text-primary: #f0f0f5;
+            --text-secondary: #b8a8c8;
+            --text-muted: #706080;
+            --accent-magenta: #d946ef;
+            --accent-purple: #a855f7;
+            --accent-cyan: #22d3ee;
+            --accent-gold: #fbbf24;
+            --accent-corona: #fff7ed;
+            --border-subtle: rgba(217, 70, 239, 0.15);
+            --gradient-sunset: linear-gradient(135deg, #d946ef 0%, #7c3aed 50%, #0f0a1a 100%);
+            --gradient-corona: radial-gradient(circle, rgba(217, 70, 239, 0.12) 0%, transparent 70%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.7;
+            font-size: 17px;
+            min-height: 100vh;
+        }
+
+        /* Cosmic background effect */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at 20% 80%, rgba(217, 70, 239, 0.12) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(168, 85, 247, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(34, 211, 238, 0.04) 0%, transparent 30%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Language Toggle */
+        .lang-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 30px;
+            padding: 4px;
+            backdrop-filter: blur(10px);
+        }
+
+        .lang-btn {
+            padding: 8px 16px;
+            border: none;
+            background: transparent;
+            color: var(--text-secondary);
+            font-family: 'Space Mono', monospace;
+            font-size: 13px;
+            cursor: pointer;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .lang-btn.active {
+            background: var(--accent-purple);
+            color: white;
+        }
+
+        .lang-btn:hover:not(.active) {
+            color: var(--text-primary);
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .nav-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--border-subtle);
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-dot:hover,
+        .nav-dot.active {
+            background: var(--accent-magenta);
+            border-color: var(--accent-magenta);
+            box-shadow: 0 0 20px rgba(255, 107, 53, 0.5);
+        }
+
+        .nav-dot::after {
+            content: attr(data-label);
+            position: absolute;
+            left: 24px;
+            top: 50%;
+            transform: translateY(-50%);
+            white-space: nowrap;
+            font-size: 12px;
+            font-family: 'Space Mono', monospace;
+            color: var(--text-muted);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .nav-dot:hover::after {
+            opacity: 1;
+        }
+
+        @media (max-width: 900px) {
+            .nav { display: none; }
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .eclipse-visual {
+            position: relative;
+            width: 180px;
+            height: 180px;
+            margin-bottom: 40px;
+        }
+
+        /* Outer corona streamers - wispy feather-like extensions */
+        .corona-streamers {
+            position: absolute;
+            width: 260%;
+            height: 260%;
+            top: -80%;
+            left: -80%;
+            background: 
+                /* Main helmet streamers - opposite sides */
+                conic-gradient(from 0deg at 50% 50%, 
+                    transparent 0deg, 
+                    rgba(255,255,255,0.03) 5deg,
+                    rgba(255,255,255,0.08) 10deg,
+                    rgba(255,255,255,0.03) 20deg,
+                    transparent 35deg,
+                    transparent 145deg,
+                    rgba(255,255,255,0.03) 160deg,
+                    rgba(255,255,255,0.08) 170deg,
+                    rgba(255,255,255,0.03) 180deg,
+                    transparent 195deg,
+                    transparent 325deg,
+                    rgba(255,255,255,0.03) 340deg,
+                    rgba(255,255,255,0.06) 350deg,
+                    transparent 360deg
+                );
+            border-radius: 50%;
+            animation: coronaPulse 6s ease-in-out infinite alternate;
+            opacity: 0.7;
+        }
+
+        /* Inner corona - bright pearly glow close to limb */
+        .corona {
+            position: absolute;
+            width: 115%;
+            height: 115%;
+            top: -7.5%;
+            left: -7.5%;
+            border-radius: 50%;
+            background: radial-gradient(circle, 
+                rgba(255,252,248,0.35) 42%,
+                rgba(255,250,245,0.2) 44%,
+                rgba(230,220,240,0.1) 48%,
+                transparent 55%
+            );
+            animation: coronaPulse 4s ease-in-out infinite alternate;
+        }
+
+        .eclipse-sun {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: radial-gradient(circle, 
+                rgba(255,200,180,0.9) 0%,
+                rgba(217, 70, 239, 0.6) 30%,
+                rgba(168, 85, 247, 0.4) 60%,
+                rgba(100, 50, 150, 0.2) 100%
+            );
+            box-shadow: 
+                0 0 40px rgba(255, 200, 180, 0.3),
+                0 0 80px rgba(217, 70, 239, 0.2),
+                0 0 120px rgba(168, 85, 247, 0.1);
+        }
+
+        /* Moon - almost completely covers sun, leaving thin corona ring */
+        .eclipse-moon {
+            position: absolute;
+            width: 94%;
+            height: 94%;
+            top: 3%;
+            left: 3%;
+            border-radius: 50%;
+            background: #050508;
+            box-shadow: 
+                inset 0 0 20px rgba(0,0,0,1),
+                0 0 2px rgba(255,252,248,0.3);
+        }
+
+        /* Subtle crane silhouette */
+        .crane-silhouette {
+            position: absolute;
+            bottom: -30%;
+            right: -15%;
+            width: 80px;
+            height: 65px;
+            opacity: 0.15;
+            color: var(--accent-magenta);
+            filter: drop-shadow(0 0 12px rgba(217, 70, 239, 0.5));
+            transform: rotate(-5deg);
+        }
+
+        @keyframes coronaPulse {
+            0% { opacity: 0.6; }
+            100% { opacity: 1; }
+        }
+
+        .hero h1 {
+            font-family: 'Space Mono', monospace;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 700;
+            letter-spacing: -2px;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 0 30px rgba(34, 211, 238, 0.3));
+        }
+
+        .hero .date {
+            font-family: 'Space Mono', monospace;
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            color: var(--accent-magenta);
+            margin-bottom: 30px;
+            letter-spacing: 4px;
+        }
+
+        .hero .tagline {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin-bottom: 40px;
+        }
+
+        .totality-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: 30px 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 30px;
+            max-width: 700px;
+            width: 100%;
+        }
+
+        .totality-stat {
+            text-align: center;
+        }
+
+        .totality-stat .value {
+            font-family: 'Space Mono', monospace;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+            display: block;
+        }
+
+        .totality-stat .label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 30px 100px;
+        }
+
+        section {
+            padding: 80px 0;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        section:last-child {
+            border-bottom: none;
+        }
+
+        h2 {
+            font-family: 'Space Mono', monospace;
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            margin-bottom: 30px;
+            color: var(--text-primary);
+            position: relative;
+            padding-left: 20px;
+        }
+
+        h2::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 8px;
+            height: 8px;
+            background: var(--accent-magenta);
+            border-radius: 50%;
+            box-shadow: 0 0 15px var(--accent-magenta);
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            margin: 40px 0 20px;
+            color: var(--accent-gold);
+            font-weight: 500;
+        }
+
+        p {
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+        }
+
+        strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        /* Tables */
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 30px 0;
+            border-radius: 12px;
+            border: 1px solid var(--border-subtle);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+        }
+
+        th {
+            background: var(--bg-card);
+            padding: 16px 20px;
+            text-align: left;
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+        }
+
+        td {
+            padding: 14px 20px;
+            border-top: 1px solid var(--border-subtle);
+            color: var(--text-secondary);
+        }
+
+        tr:hover td {
+            background: var(--bg-card-hover);
+        }
+
+        .winner td {
+            background: rgba(139, 92, 246, 0.1);
+            color: var(--text-primary);
+        }
+
+        .winner td:first-child {
+            font-weight: 600;
+        }
+
+        .check { color: #22c55e; }
+        .cross { color: #ef4444; }
+        .warning { color: var(--accent-magenta); }
+
+        /* Cards */
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: 30px;
+            margin: 20px 0;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            border-color: var(--accent-purple);
+            transform: translateY(-2px);
+        }
+
+        .card h4 {
+            font-family: 'Space Mono', monospace;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: var(--accent-magenta);
+        }
+
+        /* Lists */
+        ul, ol {
+            margin: 20px 0;
+            padding-left: 0;
+            list-style: none;
+        }
+
+        li {
+            padding: 10px 0 10px 30px;
+            position: relative;
+            color: var(--text-secondary);
+        }
+
+        li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent-purple);
+            font-weight: bold;
+        }
+
+        .checklist li::before {
+            content: '☐';
+            color: var(--text-muted);
+        }
+
+        .checklist li.done::before {
+            content: '☑';
+            color: #22c55e;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 6px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border-subtle);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -30px;
+            top: 28px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--bg-dark);
+            border: 3px solid var(--accent-purple);
+        }
+
+        .timeline-item.highlight::before {
+            background: var(--accent-magenta);
+            border-color: var(--accent-magenta);
+            box-shadow: 0 0 20px var(--accent-magenta);
+        }
+
+        .timeline-time {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.9rem;
+            color: var(--accent-gold);
+            margin-bottom: 5px;
+        }
+
+        .timeline-title {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 5px;
+        }
+
+        .timeline-desc {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        /* Budget Grid */
+        .budget-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .budget-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: 25px;
+        }
+
+        .budget-card h4 {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .budget-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border-subtle);
+            font-size: 0.95rem;
+        }
+
+        .budget-item:last-child {
+            border-bottom: none;
+        }
+
+        .budget-item.total {
+            font-weight: 700;
+            color: var(--accent-gold);
+            font-size: 1.1rem;
+            padding-top: 15px;
+            margin-top: 10px;
+            border-top: 2px solid var(--accent-purple);
+        }
+
+        /* Quick Reference Card */
+        .quick-ref {
+            background: linear-gradient(135deg, var(--bg-card) 0%, rgba(139, 92, 246, 0.1) 100%);
+            border: 2px solid var(--accent-purple);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .quick-ref h3 {
+            font-family: 'Space Mono', monospace;
+            color: var(--text-primary);
+            margin-bottom: 30px;
+        }
+
+        .quick-ref-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .quick-ref-item .big {
+            font-family: 'Space Mono', monospace;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--accent-magenta);
+        }
+
+        .quick-ref-item .small {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        .glasses-warning {
+            background: rgba(255, 107, 53, 0.15);
+            border: 1px solid var(--accent-magenta);
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .glasses-warning strong {
+            color: var(--accent-magenta);
+        }
+
+        /* Consideration Cards */
+        .consideration-grid {
+            display: grid;
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .consideration {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: 25px 30px;
+            transition: all 0.3s ease;
+        }
+
+        .consideration:hover {
+            border-color: var(--accent-magenta);
+        }
+
+        .consideration-num {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--accent-purple);
+            margin-bottom: 8px;
+        }
+
+        .consideration h4 {
+            font-size: 1.15rem;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+
+        .consideration p {
+            margin-bottom: 0;
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer .emoji {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        footer .footer-crane {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px;
+            height: 160px;
+            opacity: 0.04;
+            color: var(--accent-purple);
+            pointer-events: none;
+        }
+
+        /* Language content switching */
+        .lang-es { display: none; }
+        body.spanish .lang-en { display: none; }
+        body.spanish .lang-es { display: block; }
+
+        /* Hide content by default, show with JS */
+        .lang-content { display: block; }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            body { font-size: 16px; }
+            .container { padding: 0 20px 60px; }
+            section { padding: 50px 0; }
+            .totality-box { padding: 20px; gap: 20px; }
+            .totality-stat .value { font-size: 1.4rem; }
+            .card { padding: 20px; }
+            .quick-ref { padding: 25px; }
+            .lang-toggle { top: 10px; right: 10px; }
+            h2 { font-size: 1.4rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Language Toggle -->
+    <div class="lang-toggle">
+        <button class="lang-btn active" onclick="setLang('en')" id="btn-en">EN</button>
+        <button class="lang-btn" onclick="setLang('es')" id="btn-es">ES</button>
+    </div>
+
+    <!-- Navigation Dots -->
+    <nav class="nav">
+        <a href="#hero" class="nav-dot active" data-label="Top"></a>
+        <a href="#location" class="nav-dot" data-label="Location"></a>
+        <a href="#venue" class="nav-dot" data-label="Venue"></a>
+        <a href="#logistics" class="nav-dot" data-label="Logistics"></a>
+        <a href="#budget" class="nav-dot" data-label="Budget"></a>
+        <a href="#eclipse" class="nav-dot" data-label="Eclipse"></a>
+        <a href="#considerations" class="nav-dot" data-label="Tips"></a>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero" id="hero">
+        <div class="eclipse-visual">
+            <div class="corona-streamers"></div>
+            <div class="corona"></div>
+            <div class="eclipse-sun"></div>
+            <div class="eclipse-moon"></div>
+            <!-- Subtle crane silhouette in Glitterman style -->
+            <svg class="crane-silhouette" viewBox="0 0 100 80" fill="currentColor">
+                <path d="M5 45 Q15 35 30 38 Q40 40 50 35 Q55 33 58 30 L62 25 Q65 20 70 18 L78 15 Q82 14 85 15 L90 17 M50 35 Q48 42 45 50 L42 60 Q40 65 38 70 L36 75 M58 30 Q62 38 65 48 L67 58 Q68 65 70 72 L71 78"/>
+            </svg>
+        </div>
+        
+        <h1>
+            <span class="lang-en">ECLIPSE 2026</span>
+            <span class="lang-es">ECLIPSE 2026</span>
+        </h1>
+        
+        <p class="date">12 . 08 . 2026</p>
+        
+        <p class="tagline">
+            <span class="lang-en">An outdoor eclipse-viewing rave for 50-70 people, watching a total solar eclipse at sunset, somewhere in the hills near Zaragoza.</span>
+            <span class="lang-es">Una rave al aire libre para ver el eclipse, con 50-70 personas, observando un eclipse solar total al atardecer, en las colinas cerca de Zaragoza.</span>
+        </p>
+
+        <div class="totality-box">
+            <div class="totality-stat">
+                <span class="value">20:30</span>
+                <span class="label lang-en">Totality</span>
+                <span class="label lang-es">Totalidad</span>
+            </div>
+            <div class="totality-stat">
+                <span class="value">1m 20s</span>
+                <span class="label lang-en">Duration</span>
+                <span class="label lang-es">Duración</span>
+            </div>
+            <div class="totality-stat">
+                <span class="value">86%</span>
+                <span class="label lang-en">Clear Sky Odds</span>
+                <span class="label lang-es">Prob. Despejado</span>
+            </div>
+            <div class="totality-stat">
+                <span class="value">8-10°</span>
+                <span class="label lang-en">Sun Altitude</span>
+                <span class="label lang-es">Altura del Sol</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- LOCATION -->
+        <section id="location">
+            <h2>
+                <span class="lang-en">The Location</span>
+                <span class="lang-es">La Ubicación</span>
+            </h2>
+
+            <h3>
+                <span class="lang-en">Why Zaragoza Region?</span>
+                <span class="lang-es">¿Por Qué la Zona de Zaragoza?</span>
+            </h3>
+
+            <p class="lang-en">We evaluated every major viewing option in Spain. Here's the full analysis:</p>
+            <p class="lang-es">Evaluamos cada opción importante de observación en España. Aquí está el análisis completo:</p>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="lang-en">Location</th>
+                            <th class="lang-es">Ubicación</th>
+                            <th class="lang-en">Cloud Cover</th>
+                            <th class="lang-es">Nubosidad</th>
+                            <th class="lang-en">Success Rate</th>
+                            <th class="lang-es">Tasa de Éxito</th>
+                            <th class="lang-en">Sun Alt.</th>
+                            <th class="lang-es">Alt. Sol</th>
+                            <th class="lang-en">In Totality?</th>
+                            <th class="lang-es">¿Totalidad?</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="winner">
+                            <td>Zaragoza/Ebro</td>
+                            <td>&lt;30%</td>
+                            <td>86%</td>
+                            <td>8-10°</td>
+                            <td><span class="check">✓</span> 1m24s</td>
+                        </tr>
+                        <tr>
+                            <td>Madrid</td>
+                            <td>30-35%</td>
+                            <td>~81%</td>
+                            <td>~6-8°</td>
+                            <td><span class="cross">✗</span> <span class="lang-en">Partial only</span><span class="lang-es">Solo parcial</span></td>
+                        </tr>
+                        <tr>
+                            <td>Guadalajara</td>
+                            <td>30-35%</td>
+                            <td>~81%</td>
+                            <td>~6-8°</td>
+                            <td><span class="check">✓</span> 1m08s</td>
+                        </tr>
+                        <tr>
+                            <td>Calatayud</td>
+                            <td>~30%</td>
+                            <td>~85%</td>
+                            <td>~8°</td>
+                            <td><span class="check">✓</span> 1m41s</td>
+                        </tr>
+                        <tr>
+                            <td>Ibiza/Mallorca</td>
+                            <td>~35%</td>
+                            <td>~75%</td>
+                            <td><span class="warning">4° ⚠️</span></td>
+                            <td><span class="check">✓</span> 1m04s</td>
+                        </tr>
+                        <tr>
+                            <td>Bilbao</td>
+                            <td>~60%</td>
+                            <td>48%</td>
+                            <td>~10°</td>
+                            <td><span class="warning">⚠️</span> 0m29s</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>
+                <span class="lang-en">Why Others Were Rejected</span>
+                <span class="lang-es">Por Qué Se Descartaron las Demás</span>
+            </h3>
+
+            <div class="card">
+                <h4>Madrid — <span class="lang-en">DISQUALIFIED</span><span class="lang-es">DESCALIFICADA</span></h4>
+                <p class="lang-en">Madrid is <strong>outside the totality path</strong> — only gets 99.9% coverage. Without 100% totality, you don't see the corona, don't experience darkness, don't get the "eclipse moment".</p>
+                <p class="lang-es">Madrid está <strong>fuera de la franja de totalidad</strong> — solo alcanza el 99,9% de cobertura. Sin el 100% de totalidad, no ves la corona, no experimentas la oscuridad, no tienes el "momento del eclipse".</p>
+            </div>
+
+            <div class="card">
+                <h4>Ibiza/Mallorca — <span class="lang-en">HIGH RISK</span><span class="lang-es">ALTO RIESGO</span></h4>
+                <p class="lang-en">Sun only 4° above horizon — nearly touching the water. Any cloud, haze, or boat on the horizon blocks the view entirely. Villa costs €20,000+ and requires flights instead of direct train.</p>
+                <p class="lang-es">El sol estará a solo 4° sobre el horizonte — casi tocando el agua. Cualquier nube, calima o barco en el horizonte bloquea la vista por completo. Las villas cuestan más de €20.000 y requieren vuelos.</p>
+            </div>
+
+            <div class="card">
+                <h4><span class="lang-en">North Coast</span><span class="lang-es">Costa Norte</span> — <span class="lang-en">BAD WEATHER</span><span class="lang-es">MAL TIEMPO</span></h4>
+                <p class="lang-en">Only 48% historical success rate — coin flip odds. Atlantic influence brings clouds and moisture. Bilbao only gets 29 seconds of totality.</p>
+                <p class="lang-es">Solo 48% de tasa de éxito histórico — probabilidad de cara o cruz. La influencia atlántica trae nubes y humedad. Bilbao solo tiene 29 segundos de totalidad.</p>
+            </div>
+
+            <h3>
+                <span class="lang-en">Target Zone: La Muela</span>
+                <span class="lang-es">Zona Objetivo: La Muela</span>
+            </h3>
+
+            <p class="lang-en"><strong>La Muela</strong> sits on an elevated plateau (600m) famous for its wind farms, offering unobstructed western horizons in all directions. It's only 25 minutes from Zaragoza Delicias station, with proven microclimate that's often clear when surrounding areas have clouds.</p>
+            <p class="lang-es"><strong>La Muela</strong> está en una meseta elevada (600m) famosa por sus parques eólicos, ofreciendo horizontes oeste despejados en todas direcciones. Está a solo 25 minutos de la estación Zaragoza Delicias, con un microclima probado que a menudo está despejado cuando las zonas circundantes tienen nubes.</p>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="lang-en">Area</th>
+                            <th class="lang-es">Zona</th>
+                            <th class="lang-en">Distance</th>
+                            <th class="lang-es">Distancia</th>
+                            <th class="lang-en">Elevation</th>
+                            <th class="lang-es">Altitud</th>
+                            <th class="lang-en">Rating</th>
+                            <th class="lang-es">Valoración</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="winner">
+                            <td>La Muela</td>
+                            <td>25 min</td>
+                            <td>600m</td>
+                            <td>⭐⭐⭐⭐⭐</td>
+                        </tr>
+                        <tr>
+                            <td>Zuera</td>
+                            <td>35 min</td>
+                            <td>280m</td>
+                            <td>⭐⭐⭐⭐</td>
+                        </tr>
+                        <tr>
+                            <td>Fuentes de Ebro</td>
+                            <td>30 min</td>
+                            <td>180m</td>
+                            <td>⭐⭐⭐⭐</td>
+                        </tr>
+                        <tr>
+                            <td>El Burgo de Ebro</td>
+                            <td>25 min</td>
+                            <td>190m</td>
+                            <td>⭐⭐⭐⭐</td>
+                        </tr>
+                        <tr>
+                            <td>Alcalá de Ebro</td>
+                            <td>45 min</td>
+                            <td>250m</td>
+                            <td>⭐⭐⭐</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- VENUE -->
+        <section id="venue">
+            <h2>
+                <span class="lang-en">Venue Requirements</span>
+                <span class="lang-es">Requisitos del Lugar</span>
+            </h2>
+
+            <h3>
+                <span class="lang-en">Must-Haves ✓</span>
+                <span class="lang-es">Imprescindibles ✓</span>
+            </h3>
+
+            <ul>
+                <li><span class="lang-en"><strong>Capacity:</strong> 50-70 people outdoors</span><span class="lang-es"><strong>Capacidad:</strong> 50-70 personas al aire libre</span></li>
+                <li><span class="lang-en"><strong>Western views:</strong> Unobstructed horizon toward ~283° (WNW)</span><span class="lang-es"><strong>Vistas al oeste:</strong> Horizonte despejado hacia ~283° (ONO)</span></li>
+                <li><span class="lang-en"><strong>Swimming pool:</strong> Essential for hot August afternoon</span><span class="lang-es"><strong>Piscina:</strong> Esencial para la calurosa tarde de agosto</span></li>
+                <li><span class="lang-en"><strong>Kitchen:</strong> Full domestic kitchen for food prep</span><span class="lang-es"><strong>Cocina:</strong> Cocina doméstica completa para preparar comida</span></li>
+                <li><span class="lang-en"><strong>Electricity:</strong> Standard mains power (~4kW for sound system)</span><span class="lang-es"><strong>Electricidad:</strong> Red eléctrica estándar (~4kW para equipo de sonido)</span></li>
+                <li><span class="lang-en"><strong>Sleeping:</strong> Beds for 8 people (setup crew)</span><span class="lang-es"><strong>Dormitorios:</strong> Camas para 8 personas (equipo de montaje)</span></li>
+                <li><span class="lang-en"><strong>Parking:</strong> Space for 1 bus + ~10 cars</span><span class="lang-es"><strong>Aparcamiento:</strong> Espacio para 1 bus + ~10 coches</span></li>
+                <li><span class="lang-en"><strong>Noise policy:</strong> Allows music until late / all night</span><span class="lang-es"><strong>Política de ruido:</strong> Permite música hasta tarde / toda la noche</span></li>
+            </ul>
+
+            <h3>
+                <span class="lang-en">Dealbreakers ✗</span>
+                <span class="lang-es">Descartables ✗</span>
+            </h3>
+
+            <ul>
+                <li><span class="lang-en">No western views (buildings, trees, hills blocking)</span><span class="lang-es">Sin vistas al oeste (edificios, árboles, colinas bloqueando)</span></li>
+                <li><span class="lang-en">Strict noise curfew (10pm or earlier)</span><span class="lang-es">Toque de queda de ruido estricto (22h o antes)</span></li>
+                <li><span class="lang-en">Too far from Zaragoza (>1h by bus)</span><span class="lang-es">Demasiado lejos de Zaragoza (>1h en bus)</span></li>
+                <li><span class="lang-en">Outside totality path</span><span class="lang-es">Fuera de la franja de totalidad</span></li>
+            </ul>
+
+            <h3>
+                <span class="lang-en">Search Strategy</span>
+                <span class="lang-es">Estrategia de Búsqueda</span>
+            </h3>
+
+            <p class="lang-en"><strong>Budget:</strong> €1,500–2,500 for 2 nights is realistic for a private finca with flexible noise policy. Event venues (€900/day) often close at midnight.</p>
+            <p class="lang-es"><strong>Presupuesto:</strong> €1.500–2.500 por 2 noches es realista para una finca privada con política de ruido flexible. Los espacios de eventos (€900/día) suelen cerrar a medianoche.</p>
+
+            <p class="lang-en"><strong>Keywords:</strong> "Finca para eventos", "Casa rural grande grupos", "Villa con piscina alquiler", "Espacio para bodas"</p>
+            <p class="lang-es"><strong>Palabras clave:</strong> "Finca para eventos", "Casa rural grande grupos", "Villa con piscina alquiler", "Espacio para bodas"</p>
+
+            <p class="lang-en"><strong>Websites:</strong> EscapadaRural.com, Bodas.net, Airbnb.es, ClubRural.com, Idealista.com, Celebrents.es</p>
+            <p class="lang-es"><strong>Webs:</strong> EscapadaRural.com, Bodas.net, Airbnb.es, ClubRural.com, Idealista.com, Celebrents.es</p>
+        </section>
+
+        <!-- LOGISTICS -->
+        <section id="logistics">
+            <h2>
+                <span class="lang-en">Logistics</span>
+                <span class="lang-es">Logística</span>
+            </h2>
+
+            <h3>
+                <span class="lang-en">Transport from Sevilla</span>
+                <span class="lang-es">Transporte desde Sevilla</span>
+            </h3>
+
+            <div class="card">
+                <h4>AVE <span class="lang-en">High-Speed Train</span><span class="lang-es">Tren de Alta Velocidad</span></h4>
+                <ul>
+                    <li><span class="lang-en"><strong>Route:</strong> Sevilla Santa Justa → Zaragoza Delicias</span><span class="lang-es"><strong>Ruta:</strong> Sevilla Santa Justa → Zaragoza Delicias</span></li>
+                    <li><span class="lang-en"><strong>Duration:</strong> ~4 hours</span><span class="lang-es"><strong>Duración:</strong> ~4 horas</span></li>
+                    <li><span class="lang-en"><strong>Price:</strong> €40-80 per person (book 60-90 days early)</span><span class="lang-es"><strong>Precio:</strong> €40-80 por persona (reservar 60-90 días antes)</span></li>
+                    <li><span class="lang-en"><strong>Operators:</strong> Renfe AVE, AVLO, OUIGO, Iryo</span><span class="lang-es"><strong>Operadores:</strong> Renfe AVE, AVLO, OUIGO, Iryo</span></li>
+                </ul>
+            </div>
+
+            <h3>
+                <span class="lang-en">Event Schedule</span>
+                <span class="lang-es">Horario del Evento</span>
+            </h3>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-time"><span class="lang-en">Tue Aug 11 — Morning</span><span class="lang-es">Mar 11 Ago — Mañana</span></div>
+                    <div class="timeline-title lang-en">Setup crew arrives (8 people)</div>
+                    <div class="timeline-title lang-es">Llega el equipo de montaje (8 personas)</div>
+                    <div class="timeline-desc lang-en">Equipment setup, sound check, crew dinner</div>
+                    <div class="timeline-desc lang-es">Montaje de equipos, prueba de sonido, cena del equipo</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time"><span class="lang-en">Wed Aug 12 — 06:00-08:00</span><span class="lang-es">Mié 12 Ago — 06:00-08:00</span></div>
+                    <div class="timeline-title lang-en">Main group departs Sevilla</div>
+                    <div class="timeline-title lang-es">El grupo principal sale de Sevilla</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time"><span class="lang-en">Wed Aug 12 — 11:00-14:00</span><span class="lang-es">Mié 12 Ago — 11:00-14:00</span></div>
+                    <div class="timeline-title lang-en">Arrive venue, lunch, settle in</div>
+                    <div class="timeline-title lang-es">Llegan al lugar, almuerzo, instalarse</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">14:00-19:00</div>
+                    <div class="timeline-title lang-en">Pool, chill, music builds</div>
+                    <div class="timeline-title lang-es">Piscina, relax, la música va subiendo</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">19:30</div>
+                    <div class="timeline-title lang-en">Partial eclipse begins</div>
+                    <div class="timeline-title lang-es">Comienza el eclipse parcial</div>
+                </div>
+                <div class="timeline-item highlight">
+                    <div class="timeline-time">20:30-20:32</div>
+                    <div class="timeline-title">☀️🌑 TOTALITY / TOTALIDAD</div>
+                    <div class="timeline-desc lang-en">~1 minute 20 seconds of darkness</div>
+                    <div class="timeline-desc lang-es">~1 minuto 20 segundos de oscuridad</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">20:45</div>
+                    <div class="timeline-title lang-en">Eclipse ends near sunset</div>
+                    <div class="timeline-title lang-es">El eclipse termina cerca del atardecer</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time lang-en">21:00 → Dawn</div>
+                    <div class="timeline-time lang-es">21:00 → Amanecer</div>
+                    <div class="timeline-title lang-en">Party continues 🎶</div>
+                    <div class="timeline-title lang-es">La fiesta continúa 🎶</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time"><span class="lang-en">Thu Aug 13 — Morning</span><span class="lang-es">Jue 13 Ago — Mañana</span></div>
+                    <div class="timeline-title lang-en">Recovery, pack up, return to Sevilla</div>
+                    <div class="timeline-title lang-es">Recuperación, recoger, volver a Sevilla</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BUDGET -->
+        <section id="budget">
+            <h2>
+                <span class="lang-en">Estimated Costs</span>
+                <span class="lang-es">Costes Estimados</span>
+            </h2>
+
+            <p class="lang-en">These are realistic estimates based on 2024/2025 market research in the Zaragoza area. Actual costs will depend on availability and negotiation.</p>
+            <p class="lang-es">Estas son estimaciones realistas basadas en investigación de mercado de 2024/2025 en la zona de Zaragoza. Los costes reales dependerán de disponibilidad y negociación.</p>
+
+            <div class="budget-grid">
+                <div class="budget-card">
+                    <h4><span class="lang-en">Shared Costs</span><span class="lang-es">Costes Comunes</span></h4>
+                    <div class="budget-item">
+                        <span class="lang-en">Venue (2 nights)</span><span class="lang-es">Lugar (2 noches)</span>
+                        <span>€1,500–2,500</span>
+                    </div>
+                    <div class="budget-item">
+                        <span class="lang-en">Private bus (local)</span><span class="lang-es">Bus privado (local)</span>
+                        <span>€400–600</span>
+                    </div>
+                    <div class="budget-item">
+                        <span class="lang-en">Supplies / decoration</span><span class="lang-es">Suministros / decoración</span>
+                        <span>€200–400</span>
+                    </div>
+                    <div class="budget-item total">
+                        <span class="lang-en">SHARED TOTAL</span><span class="lang-es">TOTAL COMÚN</span>
+                        <span>€2,100–3,500</span>
+                    </div>
+                </div>
+
+                <div class="budget-card">
+                    <h4><span class="lang-en">Individual Costs</span><span class="lang-es">Costes Individuales</span></h4>
+                    <div class="budget-item">
+                        <span class="lang-en">AVE train (Sevilla↔Zaragoza)</span><span class="lang-es">Tren AVE (Sevilla↔Zaragoza)</span>
+                        <span>€40–80</span>
+                    </div>
+                    <div class="budget-item">
+                        <span class="lang-en">Accommodation (satellite)</span><span class="lang-es">Alojamiento (satélite)</span>
+                        <span>€30–60<span class="lang-en">/night</span><span class="lang-es">/noche</span></span>
+                    </div>
+                    <div class="budget-item">
+                        <span class="lang-en">Eclipse glasses (ISO 12312-2)</span><span class="lang-es">Gafas de eclipse (ISO 12312-2)</span>
+                        <span>€2–4</span>
+                    </div>
+                    <div class="budget-item">
+                        <span class="lang-en">Food & drinks</span><span class="lang-es">Comida y bebida</span>
+                        <span class="lang-en">BYOB or pooled</span><span class="lang-es">Trae lo tuyo o bote</span>
+                    </div>
+                </div>
+            </div>
+
+            <h3>
+                <span class="lang-en">Important Notes</span>
+                <span class="lang-es">Notas Importantes</span>
+            </h3>
+            
+            <ul>
+                <li><span class="lang-en"><strong>Venue challenge:</strong> Most event fincas close at midnight and don't allow overnight stays. Look for private fincas with flexible owners via Bodas.net or direct contact.</span><span class="lang-es"><strong>Reto del lugar:</strong> La mayoría de fincas de eventos cierran a medianoche y no permiten pernoctar. Buscar fincas privadas con propietarios flexibles vía Bodas.net o contacto directo.</span></li>
+                <li><span class="lang-en"><strong>Bus:</strong> Average wedding bus in Zaragoza costs €350-700. For short local trips (La Muela area), expect €400-600.</span><span class="lang-es"><strong>Bus:</strong> El bus de boda promedio en Zaragoza cuesta €350-700. Para trayectos locales cortos (zona La Muela), esperar €400-600.</span></li>
+                <li><span class="lang-en"><strong>Catering:</strong> Optional — can be BYOB/potluck, or pool money for catering. Average casa rural in Zaragoza: ~€30/person/night.</span><span class="lang-es"><strong>Catering:</strong> Opcional — puede ser "trae lo tuyo"/común, o hacer bote para catering. Casa rural promedio en Zaragoza: ~€30/persona/noche.</span></li>
+            </ul>
+        </section>
+
+        <!-- ECLIPSE EXPERIENCE -->
+        <section id="eclipse">
+            <h2>
+                <span class="lang-en">The Eclipse Experience</span>
+                <span class="lang-es">La Experiencia del Eclipse</span>
+            </h2>
+
+            <div class="quick-ref">
+                <h3>
+                    <span class="lang-en">Quick Reference</span>
+                    <span class="lang-es">Referencia Rápida</span>
+                </h3>
+                <div class="quick-ref-grid">
+                    <div class="quick-ref-item">
+                        <div class="big">20:30</div>
+                        <div class="small lang-en">Totality Start</div>
+                        <div class="small lang-es">Inicio Totalidad</div>
+                    </div>
+                    <div class="quick-ref-item">
+                        <div class="big">1m20s</div>
+                        <div class="small lang-en">Duration</div>
+                        <div class="small lang-es">Duración</div>
+                    </div>
+                    <div class="quick-ref-item">
+                        <div class="big">283°</div>
+                        <div class="small lang-en">Direction (WNW)</div>
+                        <div class="small lang-es">Dirección (ONO)</div>
+                    </div>
+                    <div class="quick-ref-item">
+                        <div class="big">8-10°</div>
+                        <div class="small lang-en">Sun Altitude</div>
+                        <div class="small lang-es">Altura del Sol</div>
+                    </div>
+                </div>
+
+                <div class="glasses-warning">
+                    <p class="lang-en"><strong>🕶️ GLASSES PROTOCOL:</strong> Wear eclipse glasses during all partial phases. REMOVE only during the ~80 seconds of totality. Put back on IMMEDIATELY when totality ends.</p>
+                    <p class="lang-es"><strong>🕶️ PROTOCOLO DE GAFAS:</strong> Llevar gafas de eclipse durante todas las fases parciales. QUITAR solo durante los ~80 segundos de totalidad. Ponérselas de nuevo INMEDIATAMENTE cuando termine la totalidad.</p>
+                </div>
+            </div>
+
+            <h3>
+                <span class="lang-en">What to Expect</span>
+                <span class="lang-es">Qué Esperar</span>
+            </h3>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-time">19:30</div>
+                    <div class="timeline-title lang-en">Partial eclipse begins</div>
+                    <div class="timeline-title lang-es">Comienza el eclipse parcial</div>
+                    <div class="timeline-desc lang-en">Moon starts "biting" the sun. Light gradually dims over the next hour.</div>
+                    <div class="timeline-desc lang-es">La Luna empieza a "morder" el sol. La luz se atenúa gradualmente durante la próxima hora.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">20:00-20:25</div>
+                    <div class="timeline-title lang-en">Deep partial phase</div>
+                    <div class="timeline-title lang-es">Fase parcial profunda</div>
+                    <div class="timeline-desc lang-en">Crescent sun visible. Light becomes eerie, silvery. Temperature drops. Shadows sharpen.</div>
+                    <div class="timeline-desc lang-es">Sol en forma de luna creciente visible. La luz se vuelve inquietante, plateada. La temperatura baja. Las sombras se afilan.</div>
+                </div>
+                <div class="timeline-item highlight">
+                    <div class="timeline-time">20:30</div>
+                    <div class="timeline-title lang-en">TOTALITY BEGINS — REMOVE GLASSES</div>
+                    <div class="timeline-title lang-es">COMIENZA LA TOTALIDAD — QUITAR GAFAS</div>
+                    <div class="timeline-desc lang-en">Corona visible (white halo). Stars & Venus appear. 360° sunset colors on horizon. Animals behave strangely. ~1 minute 20 seconds.</div>
+                    <div class="timeline-desc lang-es">Corona visible (halo blanco). Aparecen estrellas y Venus. Colores de atardecer en 360° en el horizonte. Los animales se comportan de forma extraña. ~1 minuto 20 segundos.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">20:32</div>
+                    <div class="timeline-title lang-en">Diamond Ring — PUT GLASSES BACK ON</div>
+                    <div class="timeline-title lang-es">Anillo de Diamante — PONERSE LAS GAFAS</div>
+                    <div class="timeline-desc lang-en">First bead of sunlight appears. Daylight returns rapidly.</div>
+                    <div class="timeline-desc lang-es">Aparece el primer punto de luz solar. La luz del día vuelve rápidamente.</div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- CONSIDERATIONS -->
+        <section id="considerations">
+            <h2>
+                <span class="lang-en">Things to Consider</span>
+                <span class="lang-es">Cosas a Considerar</span>
+            </h2>
+
+            <div class="consideration-grid">
+                <div class="consideration">
+                    <div class="consideration-num">01</div>
+                    <h4 class="lang-en">Commemorative Swag</h4>
+                    <h4 class="lang-es">Merchandising Conmemorativo</h4>
+                    <p class="lang-en">Custom t-shirts, eclipse patches, or a commemorative poster. Budget €3-8 per person. Order by June 2026.</p>
+                    <p class="lang-es">Camisetas personalizadas, parches de eclipse o un póster conmemorativo. Presupuesto €3-8 por persona. Pedir antes de junio 2026.</p>
+                </div>
+
+                <div class="consideration">
+                    <div class="consideration-num">02</div>
+                    <h4 class="lang-en">The Music Drop at Totality</h4>
+                    <h4 class="lang-es">El Bajón Musical en la Totalidad</h4>
+                    <p class="lang-en">80 seconds of totality. Options: complete silence, a pre-selected anthem, build-and-drop, or ambient drone. Rehearse the timing!</p>
+                    <p class="lang-es">80 segundos de totalidad. Opciones: silencio completo, un himno pre-seleccionado, build-and-drop, o ambient. ¡Ensayar el timing!</p>
+                </div>
+
+                <div class="consideration">
+                    <div class="consideration-num">03</div>
+                    <h4 class="lang-en">Pool Safety</h4>
+                    <h4 class="lang-es">Seguridad en la Piscina</h4>
+                    <p class="lang-en">50-70 people + alcohol + pool + no lifeguard. Rotate sober spotters in 2-hour shifts. Clear pool by 20:15.</p>
+                    <p class="lang-es">50-70 personas + alcohol + piscina + sin socorrista. Rotar vigilantes sobrios en turnos de 2 horas. Despejar la piscina a las 20:15.</p>
+                </div>
+
+                <div class="consideration">
+                    <div class="consideration-num">04</div>
+                    <h4 class="lang-en">Group Photo Timing</h4>
+                    <h4 class="lang-es">Timing de la Foto de Grupo</h4>
+                    <p class="lang-en">Optimal window: 19:45-20:00 during partial phase. People are excited, light is good, easy to gather everyone.</p>
+                    <p class="lang-es">Ventana óptima: 19:45-20:00 durante la fase parcial. La gente está emocionada, la luz es buena, fácil reunir a todos.</p>
+                </div>
+
+                <div class="consideration">
+                    <div class="consideration-num">05</div>
+                    <h4 class="lang-en">Eclipse Glasses — ORDER EARLY</h4>
+                    <h4 class="lang-es">Gafas de Eclipse — PEDIR CON ANTELACIÓN</h4>
+                    <p class="lang-en">Order 80-100 pairs by March/April 2026. ISO 12312-2 certified only. They sell out months before major eclipses.</p>
+                    <p class="lang-es">Pedir 80-100 pares antes de marzo/abril 2026. Solo certificadas ISO 12312-2. Se agotan meses antes de los eclipses importantes.</p>
+                </div>
+
+                <div class="consideration">
+                    <div class="consideration-num">06</div>
+                    <h4 class="lang-en">The "What If It's Cloudy" Talk</h4>
+                    <h4 class="lang-es">La Conversación del "¿Y Si Está Nublado?"</h4>
+                    <p class="lang-en">Make sure everyone knows: 86% success odds, but if cloudy, the party still happens. Set expectations before people book trains.</p>
+                    <p class="lang-es">Asegurarse de que todos saben: 86% de probabilidad de éxito, pero si está nublado, la fiesta sigue. Establecer expectativas antes de que reserven trenes.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <svg class="footer-crane" viewBox="0 0 100 80" fill="currentColor">
+            <path d="M5 45 Q15 35 30 38 Q40 40 50 35 Q55 33 58 30 L62 25 Q65 20 70 18 L78 15 Q82 14 85 15 L90 17 M50 35 Q48 42 45 50 L42 60 Q40 65 38 70 L36 75 M58 30 Q62 38 65 48 L67 58 Q68 65 70 72 L71 78"/>
+        </svg>
+        <div class="emoji">🌑✨</div>
+        <p class="lang-en">Eclipse Party 2026 — A once-in-a-lifetime cosmic opportunity in Spain</p>
+        <p class="lang-es">Fiesta del Eclipse 2026 — Una oportunidad cósmica única en la vida, en España</p>
+    </footer>
+
+    <script>
+        // Language switching
+        function setLang(lang) {
+            if (lang === 'es') {
+                document.body.classList.add('spanish');
+                document.getElementById('btn-es').classList.add('active');
+                document.getElementById('btn-en').classList.remove('active');
+                localStorage.setItem('eclipse-lang', 'es');
+            } else {
+                document.body.classList.remove('spanish');
+                document.getElementById('btn-en').classList.add('active');
+                document.getElementById('btn-es').classList.remove('active');
+                localStorage.setItem('eclipse-lang', 'en');
+            }
+        }
+
+        // Load saved language preference
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedLang = localStorage.getItem('eclipse-lang');
+            if (savedLang) {
+                setLang(savedLang);
+            }
+        });
+
+        // Navigation dots active state
+        const sections = document.querySelectorAll('section, header');
+        const navDots = document.querySelectorAll('.nav-dot');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navDots.forEach(dot => {
+                dot.classList.remove('active');
+                if (dot.getAttribute('href') === '#' + current) {
+                    dot.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
